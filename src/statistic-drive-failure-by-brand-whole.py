@@ -17,7 +17,7 @@ def statistic_failures(directory):
 
     # 根据这个键来分组数据
     grouped_df = df.groupby('model_prefix').agg(
-        count("*").alias("counts"),  # 计算每个组的行数
+        sum("counts").alias("counts"),  # 计算每个组的行数
         sum("total_failures").alias("total_failures"),  # 计算每个组 failure 字段的总和
         first("year").alias("year")
     )
