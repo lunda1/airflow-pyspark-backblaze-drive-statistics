@@ -1,6 +1,6 @@
 ## 操作流程概述
 
-1. 本机 Docker 部署 airflow
+1. 本机部署 airflow docker
 ```bash
 https://www.ygtq.cc/use-docker-to-quickly-deploy-airflow/
 ```
@@ -25,17 +25,17 @@ x-airflow-common:
     - /Users/oliverliupeng/airflow:/Users/oliverliupeng/airflow
 ```
 
-3. airflow 的 worker 对应 docker 安装 pyspark
+3. 进入 airflow 的 worker 所对应 docker 安装 pyspark
 ```bash
 pip3 install pyspark
 ```
 
-4. 编写 dag 文件并放到对应目录
+4. 编写 airflow DAG 文件并放到对应目录
 ```bash
 drive_statistics_dag.py
 ```
 
-5. 编写 任务执行脚本并放到指定目录
+5. 编写统计任务 .py 脚本并放到 src 目录
 ```bash
 hello.py
 statistic-drive-failure-by-brand-whole.py
@@ -43,12 +43,12 @@ statistic-drive-failure-by-brand-yearly.py
 statistic-drive-failure-by-date.py
 ```
 
-6. 启动 airflow 并进入控制台触发 dag
+6. 启动 airflow 并进入控制台触发 DAG
 ```bash
 http://localhost:8080/home
 ```
 
-7. 产出执行结果csv文件
+7. 产出执行结果 csv 文件
 ```bash
 drive-failure-by-brand.csv
 drive-failure-by-date.csv
